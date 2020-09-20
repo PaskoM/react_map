@@ -4,7 +4,7 @@ import ReactMapGL from 'react-map-gl'
 const viewport = {
     latitute:,
     longitude:,
-    zoom:
+    zoom: 13
 }
 return (
     <ReactMapGL
