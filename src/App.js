@@ -1,7 +1,6 @@
 import React, { Fragment } from 'react';
-import './App.css';
-import Map from './Map.js'
-import Slider from './Slider.js'
+import Map from './containers/Map.js'
+import Slider from './containers/Slider.js'
 import { Container, Row, Col } from 'reactstrap'
 import "bootstrap-css-only/css/bootstrap.min.css";
 import styled from 'styled-components';
@@ -10,26 +9,22 @@ const AppWrapper = styled.div `
   height: 100%;
 `;
 
-
 class App extends React.Component {
   state = {
     drivers: [],
     driversCount: 1,
-    splytOffice: {
-      lat: 51.5049375,
-      lng: -0.0964509
-    }
   };
 
   
   componentDidMount() {
+    let count = this.state.driversCount
     fetch(
-      "https://cors-anywhere.herokuapp.com/https://qa-interview-test.qa.splytech.io/api/drivers?count=50"
+      `https://cors-anywhere.herokuapp.com/https://qa-interview-test.qa.splytech.io/api/drivers?count=${count}`
     )
       .then((response) => response.json())
       .then((data) => {
         this.setState({
-          drivers: console.log(data.drivers),
+          drivers: console.log(data.drivers)
         });
       });
   }
@@ -48,7 +43,7 @@ class App extends React.Component {
         </Row>
         </Container>
               <Container>
-        <Slider />
+        <Slider driversCount={this.state.driversCount}/>
         </Container>
       <Container>
             <Map drivers={this.state.drivers} />
