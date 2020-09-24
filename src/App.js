@@ -2,7 +2,13 @@ import React, { Fragment } from 'react';
 import './App.css';
 import Map from './Map.js'
 import Slider from './Slider.js'
+import { Container, Row, Col } from 'reactstrap'
 import "bootstrap-css-only/css/bootstrap.min.css";
+import styled from 'styled-components';
+
+const AppWrapper = styled.div `
+  height: 100%;
+`;
 
 
 class App extends React.Component {
@@ -15,14 +21,6 @@ class App extends React.Component {
     }
   };
 
-//   getDrivers = () => {
-//     fetch(`https://cors-anywhere.herokuapp.com/https://qa-interview-test.qa.splytech.io/api/drivers?
-// latitude=51.5049375,&longitude=-0.0964509&count=50`)
-//       .then(response => response.json())
-//       .then( data  => {
-//         this.setState({ drivers: data.drivers })
-//     })
-//   }
   
   componentDidMount() {
     fetch(
@@ -40,10 +38,23 @@ class App extends React.Component {
   render() {
   
     return (
+      <AppWrapper>
       <Fragment>
-        <Map drivers={this.state.drivers}/>
+              <Container className="text-black pt-5">
+        <Row className="justify-content-center text-center">
+          <Col className="pb-5" xs={12}>
+            <h1>Splyt Challenge</h1>
+          </Col>
+        </Row>
+        </Container>
+              <Container>
         <Slider />
-      </Fragment>
+        </Container>
+      <Container>
+            <Map drivers={this.state.drivers} />
+        </Container>
+        </Fragment>
+        </AppWrapper>
     );
   }
 }

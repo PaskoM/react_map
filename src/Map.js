@@ -1,35 +1,34 @@
 import React from 'react';
 import {
-    withScriptjs,
-    withGoogleMap,
-    GoogleMap,
-    Marker,
+  withScriptjs,
+  withGoogleMap,
+  GoogleMap,
+  Marker,
 } from "react-google-maps";
 
 
 class Map extends React.Component {
 
   render() {
-    const MapWithAMarker = withScriptjs(
-      withGoogleMap((props) => (
-        <GoogleMap
-          yesIWantToUseGoogleMapApiInternals
-          defaultZoom={14}
-          defaultCenter={{ lat: 51.5049375, lng: -0.0964509 }}
-        >
-          <Marker
-            name={'Your position'}
-            position={{ lat: 51.5049375, lng: -0.0964509 }} />
-        </GoogleMap>
-      ))
-    );
+    const MapWithAMarker = withScriptjs(withGoogleMap(props =>
+  <GoogleMap
+    defaultZoom={15}
+    defaultCenter={{ lat: 51.5049375, lng: -0.0964509 }}
+  >
+    <Marker
+      position={{ lat: 51.5049375, lng: -0.0964509 }}
+    />
+  </GoogleMap>
+));
     return (
+      <div style={{ height: '100vh', width: '100%' }}>
         <MapWithAMarker
-          googleMapURL='https://maps.googleapis.com/maps/api/js?key=AIzaSyAvX2jNZU-jywa6N7yUHTsP8W3N30orbOM&v=3.exp&libraries=geometry,drawing,places'
+          googleMapURL="https://maps.googleapis.com/maps/api/js?key=AIzaSyAvX2jNZU-jywa6N7yUHTsP8W3N30orbOM&v=3.exp&libraries=geometry,drawing,places"
           loadingElement={<div style={{ height: `100%` }} />}
-          containerElement={<div style={{ height: `600px` }} />}
+          containerElement={<div style={{ height: `400px` }} />}
           mapElement={<div style={{ height: `100%` }} />}
         />
+      </div>
     );
   }
 }
