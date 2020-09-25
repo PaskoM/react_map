@@ -2,7 +2,6 @@
 import React, { useState, useEffect } from "react";
 import Map from "./Map.js";
 import { Container, Row, Col, Card } from 'react-bootstrap';
-import Slider from 'rc-slider';
 import "rc-slider/assets/index.css";
 import "rc-tooltip/assets/bootstrap.css";
 import Tooltip from 'rc-tooltip';
@@ -24,13 +23,19 @@ const Drivers = () => {
     setDrivers(data)
     console.log(data)
   };
+
+    const handleChange = value => {
+      setCount({
+        count: value
+      });
+    };
   
   const Slider = require("rc-slider");
   const createSliderWithTooltip = Slider.createSliderWithTooltip;
-  const Handle = Slider.Handle;
-  const Range = createSliderWithTooltip(Slider.Range);
+  const Handle = RCSlider.Handle;
+  // const Range = createSliderWithTooltip(Slider.Range);
   
-  const handle = (props) => {
+  const handle = props => {
   const { value, dragging, index, ...restProps } = props;
   return (
     <Tooltip
@@ -44,13 +49,6 @@ const Drivers = () => {
     </Tooltip>
   );
 };
-
-  const handleChange = value => {
-    setCount({
-      count: value
-    });
-  };
-
 
     return (
       <Container className='pb-5'>
