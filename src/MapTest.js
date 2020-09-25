@@ -117,4 +117,17 @@ renderDrivers = () => {
     if (this.state.drivers.length > 0) {
       return this.state.drivers.map(driver => <Map name={item.name} key={item.id} itemId={item.id} removeItem={this.removeItem} />)
     }
-  }
+}
+  
+componentDidMount() {
+  let count = this.state.driversCount
+  fetch(
+      `https://cors-anywhere.herokuapp.com/https://qa-interview-test.qa.splytech.io/api/drivers?count=${count}`
+    )
+    .then((response) => response.json())
+    .then((data) => {
+      this.setState({
+        drivers: console.log(data.drivers)
+      });
+    });
+}

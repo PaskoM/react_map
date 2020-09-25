@@ -6,7 +6,7 @@ import Tooltip from "rc-tooltip";
 
 const Handle = RCSlider.Handle;
 
-const Slider = props => {
+const Drivers = props => {
   const { setCount } = props;
 
   // useEffect(() => {
@@ -55,4 +55,4 @@ const Slider = props => {
   )
 }
 
-export default Slider
+export default Drivers
