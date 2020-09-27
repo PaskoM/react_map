@@ -33,7 +33,7 @@ const Drivers = () => {
   const Slider = require("rc-slider");
   const createSliderWithTooltip = Slider.createSliderWithTooltip;
   const Handle = RCSlider.Handle;
-  // const Range = createSliderWithTooltip(Slider.Range);
+  const Range = createSliderWithTooltip(Slider.Range);
   
   const handle = props => {
   const { value, dragging, index, ...restProps } = props;
