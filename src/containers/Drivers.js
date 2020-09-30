@@ -1,4 +1,4 @@
-eslint react / prop - types: 0; 
+// eslint react / prop - types: 0; 
 import React, { useState, useEffect } from "react";
 import Map from "./Map.js";
 import { Container, Row, Col, Card } from 'react-bootstrap';
