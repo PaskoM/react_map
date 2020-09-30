@@ -10,7 +10,7 @@ import RCSlider from "rc-slider";
 const Drivers = () => {
 
   const [drivers, setDrivers] = useState([]);
-  const [count, setCount] = useState(1);
+  const [count, setCount] = useState(2);
   
   useEffect(() => {
     getDrivers();
